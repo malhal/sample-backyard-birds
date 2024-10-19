@@ -17,7 +17,7 @@ struct BirdAnimation {
 }
 
 public struct BackyardViewport: View {
-    var backyard: Backyard
+    let backyard: Backyard
     
     @State private var birdAnimation = BirdAnimation()
     

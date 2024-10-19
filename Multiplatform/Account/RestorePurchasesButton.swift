@@ -14,9 +14,9 @@ struct RestorePurchasesButton: View {
     var body: some View {
         Button("Restore Purchases") {
             isRestoring = true
-            Task.detached {
-                defer { isRestoring = false }
+            Task {
                 try await AppStore.sync()
+                isRestoring = false
             }
         }
         .disabled(isRestoring)

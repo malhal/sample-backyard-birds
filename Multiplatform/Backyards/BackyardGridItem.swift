@@ -9,10 +9,10 @@ import SwiftUI
 import BackyardBirdsUI
 import BackyardBirdsData
 
-struct BackyardGridItem: View {
+public struct BackyardGridItem: View {
     var backyard: Backyard
     
-    var body: some View {
+    public var body: some View {
         ZStack {
             NavigationLink(value: backyard.id) {
                 BackyardViewport(backyard: backyard)
@@ -29,10 +29,10 @@ struct BackyardGridItem: View {
         .containerShape(.rect(cornerRadius: 20))
     }
     
-    struct Header: View {
-        var backyard: Backyard
+    public struct Header: View {
+        let backyard: Backyard
         
-        var body: some View {
+        public var body: some View {
             HStack {
                 Text(backyard.name)
                     .font(.callout)
@@ -61,10 +61,10 @@ struct BackyardGridItem: View {
         }
     }
     
-    struct SupplyGauges: View {
-        var backyard: Backyard
+    public struct SupplyGauges: View {
+        let backyard: Backyard
         
-        var body: some View {
+        public var body: some View {
             HStack {
                 BackyardSupplyGauge(backyard: backyard, supplies: .food)
                     .scaleEffect(0.65)

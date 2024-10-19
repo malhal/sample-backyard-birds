@@ -16,7 +16,7 @@ struct PlantsNavigationStack: View {
         NavigationStack {
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 110), alignment: .top)], spacing: 20) {
-                    PlantsSearchResults(searchText: $searchText)
+                    PlantsSearchResults(searchText: searchText)
                 }
             }
             .searchable(text: $searchText)

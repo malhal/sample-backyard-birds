@@ -16,7 +16,16 @@ struct BackyardGrid: View {
     @Environment(\.passStatus) private var passStatus
     @Environment(\.passStatusIsLoading) private var passStatusIsLoading
     
-    @Query var backyards: [Backyard]
+    var backyards: Query<Backyard, [Backyard]> {
+        if searchText.isEmpty {
+            return Query(sort: \Backyard.creationDate)
+        } else {
+            let term = searchText
+            return Query(filter: #Predicate { backyard in
+                backyard.name.contains(term)
+            }, sort: \.name)
+        }
+    }
     
     var body: some View {
         ScrollView {
@@ -25,7 +34,7 @@ struct BackyardGrid: View {
             }
             
             LazyVGrid(columns: [.init(.adaptive(minimum: 300))]) {
-                BackyardsSearchResults(searchText: $searchText)
+                BackyardsSearchResults(_backyards: backyards)
             }
         }
         #if os(macOS)

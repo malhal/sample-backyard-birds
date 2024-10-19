@@ -11,7 +11,7 @@ import BackyardBirdsData
 import BackyardBirdsUI
 
 struct BackyardDetailView: View {
-    var backyard: Backyard
+    let backyard: Backyard
     
     @State private var presentingHappinessIndicator = false
     @State private var presentingBirdFoodShop = false

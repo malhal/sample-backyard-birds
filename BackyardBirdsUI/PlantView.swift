@@ -10,8 +10,8 @@ import BackyardBirdsData
 import LayeredArtworkLibrary
 
 public struct PlantView: View {
-    var plant: Plant
-    var index: Int
+    let plant: Plant
+    let index: Int
     
     public init(plant: Plant, index: Int) {
         self.plant = plant

@@ -9,8 +9,8 @@ import SwiftUI
 import BackyardBirdsData
 
 public struct BackyardSupplyGauge: View {
-    var backyard: Backyard
-    var supplies: BackyardSupplies
+    let backyard: Backyard
+    let supplies: BackyardSupplies
     
     @Environment(\.layoutDirection) private var originalLayoutDirection
     

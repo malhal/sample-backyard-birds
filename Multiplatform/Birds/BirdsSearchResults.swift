@@ -10,22 +10,16 @@ import SwiftData
 import BackyardBirdsData
 
 struct BirdsSearchResults<Content: View>: View {
-    @Binding var searchText: String
-    @Query private var birds: [Bird]
-    private var content: (Bird) -> Content
-    
-    init(searchText: Binding<String>, @ViewBuilder content: @escaping (Bird) -> Content) {
-        _searchText = searchText
-        _birds = Query(sort: \.creationDate)
-        self.content = content
-    }
+    let searchText: String
+    @Query(sort: \Bird.creationDate) private var birds: [Bird]
+    var content: (Bird) -> Content
     
     var body: some View {
-        if $searchText.wrappedValue.isEmpty {
+        if searchText.isEmpty {
             ForEach(birds, content: content)
         } else {
             ForEach(birds.filter {
-                $0.speciesName.contains($searchText.wrappedValue)
+                $0.speciesName.contains(searchText)
             }, content: content)
         }
     }

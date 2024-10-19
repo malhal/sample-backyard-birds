@@ -10,7 +10,7 @@ import BackyardBirdsData
 import LayeredArtworkLibrary
 
 public struct RecentBackyardVisitorsView: View {
-    var backyard: Backyard
+    let backyard: Backyard
     
     @State private var seeAll = false
     

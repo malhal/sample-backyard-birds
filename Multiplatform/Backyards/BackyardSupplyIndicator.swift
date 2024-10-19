@@ -10,8 +10,8 @@ import BackyardBirdsUI
 import BackyardBirdsData
 
 struct BackyardSupplyIndicator: View {
-    var backyard: Backyard
-    var supplies: BackyardSupplies
+    let backyard: Backyard
+    let supplies: BackyardSupplies
     
     @State private var presentingBirdFoodPicker = false
     
